@@ -1,41 +1,70 @@
-Data Engineering Job Scraper (data_eng.py)
-This project is a Python-based web scraper that collects real job postings for Data Engineering roles from the UK Government’s Find a Job website. It extracts structured information such as:
+📦 Data Engineering Job Scraper (data_eng.py)
+This project is a Python-based web scraper that collects real Data Engineering job postings from the UK Government’s Find a Job website. It extracts raw job information, cleans and structures the data, and loads it into a PostgreSQL database for analysis.
 
+🎯 What This Project Does
+After scraping the raw job listings, the pipeline performs several data engineering transformations:
+
+Data Extraction
 Job title
 
 Company
 
 Location
 
-Salary
+Salary text
 
 Date posted
 
-The scraper uses Selenium to load dynamic content and BeautifulSoup to parse the HTML. The final dataset is exported as a clean CSV file for analysis.
+Data Cleaning & Transformation
+Extracted postcode from messy location strings
 
-Why This Project Exists
-I built this project to practice real-world data engineering skills:
+Extracted min_salary using regex
 
-Extracting structured data from messy HTML
+Extracted max_salary using regex
 
-Understanding page structure and selectors
+Converted salary fields to numeric
 
-Handling missing or inconsistent fields
+Handled missing values safely
 
-Building a repeatable ETL-style pipeline
+Reordered columns into a clean, logical structure
 
-Converting raw data into a usable dataset
+Saved cleaned dataset to cleaned_jobs.csv
 
-This project demonstrates my ability to work with web data, automate extraction, and prepare datasets for analysis.
+Database Integration
+Connected to PostgreSQL using SQLAlchemy
 
-Tech Stack
+Uploaded the cleaned dataset into a relational table
+
+Verified connection and data load successfully
+
+🛠️ Tech Stack
 Python
 
 Selenium
 
 BeautifulSoup
 
-Pandas
+pandas
 
-Features
-✅ Scrapes live job listings ✅ Extracts 5+ fields per job ✅ Handles missing data safely ✅ Converts results into a DataFrame ✅ Saves output to jobs.csv ✅ Clean, reusable code structure
+Regex
+
+SQLAlchemy
+
+PostgreSQL
+
+✨ Features
+Scrapes live job listings from a real government portal
+
+Extracts 5+ structured fields per job
+
+Cleans and enriches salary data with min/max values
+
+Extracts postcode from location strings
+
+Handles missing or inconsistent fields gracefully
+
+Outputs clean CSV files for analysis
+
+Uploads data to PostgreSQL for querying
+
+Reusable, modular code structure
